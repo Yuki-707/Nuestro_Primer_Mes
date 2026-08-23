@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Carta Digital</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #c5c6c7;
+    text-align: center;
+    background: url('celeste.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow-x: hidden;
+  }
+
+  /* Efecto estrellas */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('star.png') repeat;
+    z-index: -1;
+    animation: twinkle 20s linear infinite;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  @keyframes twinkle {
+    0% { background-position: 0 0; }
+    100% { background-position: 1000px 1000px; }
+  }
+
+  .overlay {
+    background-color: rgba(11, 12, 16, 0.85);
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: auto;
+    background: rgba(31, 40, 51, 0.8);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 15px #66fcf1;
+  }
+
+  h1 {
+    color: #45a29e;
+    margin-bottom: 0.2em;
+    animation: bounce 1.5s infinite alternate;
+    text-shadow: 0 0 8px #66fcf1, 0 0 15px #45a29e;
+  }
+
+  @keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-5px); }
+  }
+
+  .nickname {
+    font-size: 1.2em;
+    color: #66fcf1;
+  }
+
+  .poem {
+    background: #45a29e;
+    color: #0b0c10;
+    margin: 25px 0;
+    padding: 15px;
+    border-radius: 10px;
+    font-style: italic;
+    line-height: 1.5em;
+  }
+
+  .gif-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+
+  .gif-container img {
+    width: 120px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #66fcf1;
+  }
+
+  .song-link {
+    display: inline-block;
+    margin: 20px 0;
+    padding: 12px 25px;
+    background: #66fcf1;
+    color: #0b0c10;
+    font-weight: bold;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  .song-link:hover {
+    background: #45a29e;
+    color: white;
+  }
+
+  .secret-message {
+    font-size: 0.9em;
+    color: #45a29e;
+    opacity: 0.3;
+    cursor: default;
+    user-select: text;
+    margin-top: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    margin-top: 35px;
+    font-size: 0.85em;
+    color: #45a29e;
+  }
+
+  /* Brillo para audio */
+  .glow {
+    animation: glow 2s ease-in-out infinite alternate;
+    box-shadow: 0 0 20px #66fcf1, 0 0 40px #66fcf1;
+  }
+
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 5px #66fcf1;
+    }
+    to {
+      box-shadow: 0 0 25px #66fcf1, 0 0 50px #66fcf1;
+    }
+  }
+
+  /* Estilos para el mini juego */
+  #game-area {
+    position: relative;
+    margin: 30px auto;
+    width: 300px;
+    height: 300px;
+    background: rgba(102, 252, 241, 0.1);
+    border: 2px solid #66fcf1;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+
+  #heart {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s;
+  }
+  #heart:active {
+    transform: scale(0.9);
+  }
+
+  #score {
+    color: #66fcf1;
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 1.2em;
+  }
+
+  #start-btn {
+    background: #66fcf1;
+    color: #0b0c10;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s ease;
+  }
+
+  #start-btn:hover {
+    background: #45a29e;
+    color: white;
+  }
+</style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="container">
+      <h1>Feliz Primer Mes</h1>
+      <p class="nickname">De tu Jazi <3 </p>
+      <p>Eres lo mejor que me ha pasado,<br> eres el amor de mi vida.</p>
+
+      <div class="poem">
+        <p>
+          Mi Player #1, mi cómplice ideal,<br>
+          en este juego, mi primer amor virtual.<br>
+          Eres el código secreto que enciende mi mundo,<br>
+          el latido que me acelera, profundo y rotundo.<br><br>
+
+          Gracias por ser mi equipo, mi cómplice y mi amigo,<br>
+          con cada pixel, te quiero más, mi dulce y coqueto.<br>
+          Eres mi más alto nivel, mi premio sin final,<br>
+          contigo siempre gano, en esta historia especial.<br><br>
+
+          Mi Player #1, mi luz en la oscuridad,<br>  
+          a donde quieras ir, yo te voy a acompañar.<br>  
+          Eres mi estrella que siempre me guía,<br>  
+          en este juego, mi dulce melodía.<br><br>  
+
+          Sígueme en sueños, más allá del pixel,<br>  
+          donde solo existimos tú y yo, sin nivel.<br>  
+          Contigo, todos los miedos se desvanecen,<br>  
+          y mi amor por ti crece, nunca perece.
+        </p>
+      </div>
+
+      <p style="color:#c5c6c7; font-style:italic;">Y si este mundo fuera un videojuego... tú seguirías siendo mi premio final.</p>
+
+      <!-- Mini juego -->
+      <div id="game-area" aria-label="Área de juego de atrapar el corazón">
+        <img src="heart.gif" alt="Corazón para atrapar" id="heart" tabindex="0" />
+      </div>
+      <button id="start-btn" aria-label="Iniciar el juego">Iniciar Juego ❤️</button>
+      <div id="score" aria-live="polite">Puntuación: 0</div>
+
+      <!-- Reproductor de audio -->
+      <audio controls class="glow" style="width: 90%; border-radius: 10px; margin-top: 15px;">
+        <source src="sin-miedo.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+      </audio>
+
+      <p class="secret-message" title="Mensaje secreto">
+        Te espera una sorpresa a la 1:10 am para mí y 2:10 am para ti. Estate atento a tus notificaciones.
+      </p>
+
+      <footer>
+        <p>Eres mi player número #1 y el dueño de mi corazón.<br> 06/05/2025, el día que cambió todo.</p>
+      </footer>
+    </div>
+  </div>
+
+<script>
+  const heart = document.getElementById('heart');
+  const gameArea = document.getElementById('game-area');
+  const startBtn = document.getElementById('start-btn');
+  const scoreDisplay = document.getElementById('score');
+
+  let score = 0;
+  let gameInterval = null;
+  let gameActive = false;
+
+  function moveHeart() {
+    const maxX = gameArea.clientWidth - heart.clientWidth;
+    const maxY = gameArea.clientHeight - heart.clientHeight;
+
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+
+    heart.style.left = randomX + 'px';
+    heart.style.top = randomY + 'px';
+  }
+
+  function startGame() {
+    if(gameActive) return;
+
+    score = 0;
+    scoreDisplay.textContent = 'Puntuación: ' + score;
+    gameActive = true;
+    moveHeart();
+
+    gameInterval = setInterval(() => {
+      moveHeart();
+    }, 1500);
+  }
+
+  function stopGame() {
+    gameActive = false;
+    clearInterval(gameInterval);
+  }
+
+  heart.addEventListener('click', () => {
+    if (!gameActive) return;
+
+    score++;
+    scoreDisplay.textContent = 'Puntuación: ' + score;
+
+    if(score >= 50){
+      stopGame();
+      alert("Buuuu, ¿Te asuste? Vaya, no pensé que fueras a continuar jugando, pero felicidades, te has robado mi corazón.  \nEspero que te guste lo que te tengo preparado, no estoy segura si ya lo recibiste o todavía no,  \npero fue pensado en ti. Sé que esto es sencillo, pero pasaron algunas cosas. Hey, desbloqueaste un secreto, esto lo realicé en un par de horas sin saber programación. Es increible lo que puedes hacer por amor, me parece que es la primera vez que hago algo asi. Me hubiera gusta que vieras el plan original, pero se me daño el archivo ;-; . En fin espero que te haya gustado <3");
+    }
+  });
+
+  startBtn.addEventListener('click', () => {
+    startGame();
+  });
+</script>
+
+</body>
+</html>
